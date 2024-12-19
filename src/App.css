@@ -51,6 +51,7 @@ span{
   margin-right: 10px;
 }
 
+
 .submit-button {
   background-color: #4CAF50;
   color: white;
@@ -63,6 +64,10 @@ span{
 
 .submit-button:hover {
   background-color: #45a049;
+}
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {

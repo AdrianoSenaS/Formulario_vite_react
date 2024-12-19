@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './App.css'
 
 const RegistrationForm = () => {
+  const [buttonText, setButtonText] = useState("Enviar Inscrição");
+  const [isSending, setIsSending] = useState(false);
   const [formData, setFormData] = useState({
     course: '',
     cpf: '',
@@ -26,15 +28,36 @@ const RegistrationForm = () => {
     dueDate: ''
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault(); // Previne o comportamento padrão do botão
+    setIsSending(true);
+    setButtonText("Enviando...");
+    try {
+      const response = await fetch('url api', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert('E-mail enviado com sucesso!');
+      } else {
+        alert('Erro ao enviar o e-mail.');
+        console.log(response.statusText);
+      }
+    } catch (error) {
+      console.error('Erro:', error);
+    }
     console.log('Form Data:', formData);
+    setIsSending(false);
+    setButtonText("Enviar Inscrição");
   };
+
 
   return (
     <div className="form-container">
@@ -131,7 +154,7 @@ const RegistrationForm = () => {
           />
         </fieldset>
 
-        <button type="submit" className="submit-button">Enviar Inscrição</button>
+        <button type="submit" className="submit-button" disabled={isSending}> {buttonText}</button>
       </form>
     </div>
   );
