@@ -53,6 +53,7 @@ span{
 
 
 .submit-button {
+  width: 100%;
   background-color: #4CAF50;
   color: white;
   border: none;
@@ -69,6 +70,37 @@ span{
   background-color: #ccc;
   cursor: not-allowed;
 }
+/* Seção de Parceiros */
+.partners-section {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.partners-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.partners-logos {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.partner-logo {
+  width: 150px;
+  height: auto;
+  transition: transform 0.3s ease-in-out;
+}
+
+.thank-you-message {
+  text-align: center;
+  color: #4caf50;
+  background: #e8f5e9;
+  padding: 20px;
+  border-radius: 8px;
+}
 
 @media (max-width: 768px) {
   .form-container {
@@ -81,5 +113,13 @@ span{
 
   p {
     font-size: 12px;
+  }
+  .partners-logos {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .partner-logo {
+    width: 120px;
   }
 }
