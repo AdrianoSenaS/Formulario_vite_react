@@ -41,7 +41,7 @@ const RegistrationForm = () => {
     setIsSending(true);
     setButtonText("Enviando...");
     try {
-      const response = await fetch('url api aqui', {
+      const response = await fetch('/api/SendEmail', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
@@ -80,11 +80,11 @@ const RegistrationForm = () => {
                 <input
                   type="radio"
                   name="course"
-                  value="Teologia Bíblica para Lideres Cristãos"
-                  checked={formData.course === 'Teologia Bíblica para Lideres Cristãos'}
+                  value="Teologia Bíblica para Líderes Cristãos"
+                  checked={formData.course === 'Teologia Bíblica para Líderes Cristãos'}
                   onChange={handleChange}
                 />
-                Teologia Bíblica para Lideres Cristãos
+                Teologia Bíblica para Líderes Cristãos
               </label>
               <br />
               <label>
@@ -136,22 +136,22 @@ const RegistrationForm = () => {
                 <input
                   type="radio"
                   name="paymentOption"
-                  value="À vista: R$ 200,00 "
-                  checked={formData.paymentOption === 'À vista: R$ 200,00 '}
+                  value="À vista: R$289,00"
+                  checked={formData.paymentOption === 'À vista: R$289,00'}
                   onChange={handleChange}
                 />
-                À vista: R$ 200,00
+                À vista: R$ 289,00
               </label>
               <br />
               <label>
                 <input
                   type="radio"
                   name="paymentOption"
-                  value="Parcelado: R$260,00 1 + 1 de R$ 130,00"
-                  checked={formData.paymentOption === 'Parcelado: R$260,00 1 + 1 de R$ 130,00'}
+                  value="Parcelado: R$350,00 1+1 de 175,00"
+                  checked={formData.paymentOption === 'Parcelado: R$350,00 1+1 de 175,00'}
                   onChange={handleChange}
                 />
-                Parcelado: R$260,00 |  1 + 1 de R$ 130,00
+                Parcelado: R$350,00 1+1 de 175,00
                  
               </label><br />
              
